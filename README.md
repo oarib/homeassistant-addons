@@ -10,5 +10,8 @@ Dépôt personnalisé pour installer des add-ons dans Home Assistant OS.
 
 1. Ouvre Home Assistant
 2. Va dans **Paramètres > Add-ons > Dépôts > Ajouter un dépôt personnalisé**
-3. Colle cette URL : https://github.com/oarib/homeassistant-addons
-4. Clique sur **"HyperHDR"** pour l’installer !
+3. Colle cette URL:
+   ```
+   https://github.com/oarib/homeassistant-addons
+   ```
+5. Clique sur **"HyperHDR"** pour l’installer !
