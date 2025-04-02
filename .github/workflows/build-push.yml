@@ -3,27 +3,18 @@ name: Build & Push HyperHDR
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 2 * * *"  # Tous les jours à 2h du matin
+    - cron: "0 2 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout this repository (Home Assistant Add-on)
+      - name: Checkout add-on repository
         uses: actions/checkout@v4
 
-      - name: Checkout HyperHDR source
-        uses: actions/checkout@v4
-        with:
-          repository: awawa-dev/HyperHDR
-          path: hyperhdr-source
-          ref: master
-          submodules: true
-
-      - name: Copy HyperHDR source into build context
+      - name: Clone HyperHDR source with submodules
         run: |
-          mkdir -p hyperhdr/hyperhdr-source
-          cp -r hyperhdr-source/* hyperhdr/hyperhdr-source
+          git clone --recurse-submodules https://github.com/awawa-dev/HyperHDR.git ./hyperhdr/hyperhdr-source
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
