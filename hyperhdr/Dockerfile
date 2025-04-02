@@ -1,9 +1,9 @@
 FROM ubuntu:22.04
 
-# Éviter les prompts interactifs (comme pour tzdata)
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 
+# Installer dépendances
 RUN apt-get update && apt-get install -y \
     git cmake build-essential qtbase5-dev libqt5serialport5-dev \
     libusb-1.0-0-dev libturbojpeg0-dev libavcodec-dev libavformat-dev \
@@ -11,10 +11,10 @@ RUN apt-get update && apt-get install -y \
     libudev-dev pkg-config tzdata && \
     rm -rf /var/lib/apt/lists/*
 
-# Copier les sources clonées par GitHub Actions
+# Copier les sources dans le conteneur
 COPY hyperhdr-source /opt/hyperhdr
 
-# Compilation
+# Compilation de HyperHDR
 WORKDIR /opt/hyperhdr
 RUN mkdir build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release .. && \
