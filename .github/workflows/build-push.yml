@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout add-on repository
+      - name: Checkout add-on repository (ce dépôt)
         uses: actions/checkout@v4
 
-      - name: Clone HyperHDR source with submodules
+      - name: Clone HyperHDR avec sous-modules
         run: |
           git clone --recurse-submodules https://github.com/awawa-dev/HyperHDR.git ./hyperhdr/hyperhdr-source
 
