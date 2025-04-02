@@ -1,0 +1,19 @@
+{
+  "name": "HyperHDR",
+  "version": "auto",
+  "slug": "hyperhdr",
+  "description": "HyperHDR Ambilight prebuilt for ARM64",
+  "startup": "services",
+  "boot": "auto",
+  "arch": ["aarch64"],
+  "init": false,
+  "map": ["config:rw"],
+  "image": "obaida/hyperhdr-arm64:latest",
+  "ports": {
+    "8090/tcp": 8090,
+    "19444/tcp": 19444
+  },
+  "webui": "http://[HOST]:[PORT:8090]",
+  "ingress": false,
+  "panel_icon": "mdi:television-ambient-light"
+}
